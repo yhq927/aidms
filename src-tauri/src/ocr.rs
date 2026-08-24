@@ -34,7 +34,8 @@ pub fn ocr_image(image_path: &Path, tessdata_prefix: &Path, lang: &str) -> Resul
                 .ok_or_else(|| "图像路径非 UTF-8".to_string())?,
         )
         .map_err(|e| format!("设置图像失败: {e}"))?;
-    let t = t.recognize().map_err(|e| format!("识别失败: {e}"))?;
+    // get_text 需要 &mut self，recognize 结果须声明为可变绑定
+    let mut t = t.recognize().map_err(|e| format!("识别失败: {e}"))?;
     t.get_text().map_err(|e| format!("获取文本失败: {e}"))
 }
 
