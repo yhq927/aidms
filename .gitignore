@@ -1,0 +1,21 @@
+# OCR 词库（二进制大文件，不入库；由 scripts/download-tessdata.{sh,ps1} 或 CI 下载）
+src-tauri/resources/tessdata/*.traineddata
+
+# 构建产物
+src-tauri/target/
+frontend/dist/
+frontend/node_modules/
+dist-r*-old/
+dist-r*/
+
+# 根目录 Rust 编译缓存镜像（本机）
+.target-core/
+.target-tauri/
+
+# 本机审计/验证临时备份
+**/dist-r*-old/
+**/*.log
+
+# 操作系统
+.DS_Store
+Thumbs.db
