@@ -12,6 +12,14 @@ dist-r*/
 .target-core/
 .target-tauri/
 
+# 前端历史构建备份 / QA 标记 / 探测残留（勿入库）
+frontend/dist-old*/
+frontend/dist-p*-old/
+frontend/dist-qa-old/
+frontend/.qa-build*.ok
+ps_probe.txt
+*.tsbuildinfo
+
 # 本机审计/验证临时备份
 **/dist-r*-old/
 **/*.log
