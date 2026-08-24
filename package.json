@@ -1,0 +1,10 @@
+{
+  "name": "aidms",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AIDMS 企业资料管理系统（前端在 frontend/ 子目录；本文件为 Tauri CLI beforeBuildCommand 的兜底入口）",
+  "scripts": {
+    "build": "npm --prefix frontend run build",
+    "dev": "npm --prefix frontend run dev"
+  }
+}
