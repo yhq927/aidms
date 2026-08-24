@@ -20,11 +20,21 @@ use tesseract::Tesseract;
 
 /// 对单张图片做 OCR，返回识别文本。
 pub fn ocr_image(image_path: &Path, tessdata_prefix: &Path, lang: &str) -> Result<String, String> {
-    let mut t = Tesseract::new(Some(tessdata_prefix), lang)
+    // tesseract 0.14 API：Tesseract::new(Option<&str>, Option<&str>)；set_image/recognize 均为
+    // 消费型 builder（mut self -> Result<Self>），须链式重绑定，不能写成语句后继续用旧 t。
+    let tess_prefix = tessdata_prefix
+        .to_str()
+        .ok_or_else(|| "词库目录路径非 UTF-8".to_string())?;
+    let t = Tesseract::new(Some(tess_prefix), Some(lang))
         .map_err(|e| format!("tesseract 初始化失败: {e}"))?;
-    t.set_image(image_path)
+    let t = t
+        .set_image(
+            image_path
+                .to_str()
+                .ok_or_else(|| "图像路径非 UTF-8".to_string())?,
+        )
         .map_err(|e| format!("设置图像失败: {e}"))?;
-    t.recognize().map_err(|e| format!("识别失败: {e}"))?;
+    let t = t.recognize().map_err(|e| format!("识别失败: {e}"))?;
     t.get_text().map_err(|e| format!("获取文本失败: {e}"))
 }
 
