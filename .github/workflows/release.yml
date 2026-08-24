@@ -46,6 +46,10 @@ jobs:
         shell: bash
         run: bash scripts/download-tessdata.sh
 
+      # ---- 安装前端依赖（node_modules 不入库，必须在 CI 上安装；beforeBuildCommand 会跑 vite/tsc）----
+      - name: Install frontend deps
+        run: npm --prefix frontend ci
+
       # ---- Tauri 双平台构建（Windows + macOS，启用 ocr feature）----
       - name: Tauri build
         uses: tauri-apps/tauri-action@v0
