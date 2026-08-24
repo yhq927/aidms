@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "AIDMS",
+  "version": "0.1.0",
+  "identifier": "com.aidms.desktop",
+  "build": {
+    "frontendDist": "../frontend/dist",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "AIDMS 企业资料管理",
+        "width": 1100,
+        "height": 720,
+        "minWidth": 1024,
+        "minHeight": 720,
+        "dragDropEnabled": true,
+        "center": true,
+        "resizable": true
+      }
+    ],
+    "security": {
+      "csp": {
+        "dev": "default-src 'self'; img-src 'self' asset: https://asset.localhost blob: data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' ipc: http://ipc.localhost; font-src 'self' data:",
+        "prod": "default-src 'self'; img-src 'self' asset: https://asset.localhost blob: data:; style-src 'self'; style-src-attr 'unsafe-inline'; style-src-elem 'unsafe-inline'; script-src 'self'; connect-src 'self' ipc: http://ipc.localhost; font-src 'self'"
+      }
+    }
+  },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "icon": ["icons/icon.png", "icons/icon.ico"],
+      "category": "Productivity",
+      "shortDescription": "本地企业资料管理与智能检索",
+      "longDescription": "AIDMS：本地桌面企业资料管理系统，支持多主体资料归集、OCR、融合检索与 RAG 问答。",
+      "resources": ["resources/tessdata"],
+      "windows": {
+        "nsis": {
+          "displayLanguageSelector": true,
+          "languages": ["SimpChinese", "English"]
+        }
+      },
+      "macOS": {
+        "minimumSystemVersion": "10.15",
+        "dmg": {
+          "windowSize": { "width": 660, "height": 400 }
+        }
+      }
+    }
+}

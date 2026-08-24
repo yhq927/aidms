@@ -1,0 +1,76 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: windows
+          - os: macos-latest
+            platform: macos
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      # ---- 系统级依赖（仅编译期需要，OCR feature 链接 libtesseract）----
+      - name: System deps (macOS)
+        if: matrix.platform == 'macos'
+        run: brew install tesseract
+
+      - name: vcpkg tesseract (Windows, 编译期链接)
+        if: matrix.platform == 'windows'
+        uses: johnwason/vcpkg-action@v6
+        with:
+          pkgs: tesseract
+          triplet: x64-windows
+          token: ${{ github.token }}
+
+      # ---- 下载 OCR 中英文词库到随包 resources（chi_sim+eng，~30MB）----
+      - name: Download tessdata
+        shell: bash
+        run: bash scripts/download-tessdata.sh
+
+      # ---- Tauri 双平台构建（Windows + macOS，启用 ocr feature）----
+      - name: Tauri build
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Windows 编译期链接 vcpkg 的 tesseract
+          VCPKG_ROOT: ${{ steps.vcpkg.outputs.vcpkg-root }}
+          # macOS 代码签名 + 公证（仓库 Secrets 配置）
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+          # Windows 代码签名（TAURI_SIGNING_PRIVATE_KEY 为 PKCS#8 私钥）
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        with:
+          projectPath: src-tauri
+          args: --features ocr
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: aidms-${{ matrix.platform }}
+          path: |
+            src-tauri/target/release/bundle/**/*
+          if-no-files-found: ignore

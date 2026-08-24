@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AIDMS 企业资料管理系统 — 本地优先的企业资料管理</title>
+<meta name="description" content="AIDMS：本地桌面企业资料管理系统，支持多主体资料归集、OCR、融合检索与 RAG 问答。数据不出本机。" />
+<style>
+:root{
+  --bg:#f7f8fb; --card:#ffffff; --ink:#1a2233; --muted:#5b6478;
+  --line:#e6e9f0; --brand:#3b5bdb; --brand-2:#5c7cfa; --win:#0078d4; --mac:#111827;
+  --radius:16px; --shadow:0 10px 30px rgba(20,30,60,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.3px}
+.logo .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+.nav a.ghost{color:var(--muted);text-decoration:none;font-size:14px;border:1px solid var(--line);padding:8px 14px;border-radius:10px}
+.hero{text-align:center;padding:60px 0 30px}
+.badge{display:inline-block;font-size:13px;color:var(--brand);background:#eef1fe;border:1px solid #dbe2fd;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+h1{font-size:44px;line-height:1.2;font-weight:800;letter-spacing:-.5px}
+h1 .accent{background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:18px;color:var(--muted);margin-top:16px;max-width:680px;margin-left:auto;margin-right:auto}
+.dl{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.btn{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;padding:16px 26px;border-radius:14px;min-width:240px;box-shadow:var(--shadow);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn .ico{font-size:22px;line-height:1}
+.btn .t{font-weight:700;font-size:16px}
+.btn .s{font-size:12px;opacity:.85;font-weight:500}
+.btn.win{background:linear-gradient(135deg,#0078d4,#2b88d8)}
+.btn.mac{background:linear-gradient(135deg,#111827,#374151)}
+.btn.recommend{outline:3px solid #ffd43b;outline-offset:2px}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:60px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.card h3{font-size:16px;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted)}
+.privacy{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin:30px 0;box-shadow:var(--shadow)}
+.privacy h2{font-size:22px;margin-bottom:10px}
+.privacy p{color:var(--muted);font-size:15px}
+footer{padding:40px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:30px}
+footer a{color:var(--brand);text-decoration:none}
+@media(max-width:760px){.cards{grid-template-columns:1fr}.dl{flex-direction:column;align-items:stretch}h1{font-size:32px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <div class="logo"><span class="dot"></span> AIDMS</div>
+    <a class="ghost" href="https://github.com/yhq927/aidms" target="_blank" rel="noopener">GitHub 仓库</a>
+  </header>
+
+  <section class="hero">
+    <span class="badge">本地优先 · 数据不出本机</span>
+    <h1>企业资料管理，<br><span class="accent">交给本地智能桌面</span></h1>
+    <p class="sub">多公司主体资料归集、扫描件 OCR、融合检索（全文 + 向量）与 RAG 问答。所有数据保存在你自己的电脑上，不上传任何云端。</p>
+
+    <div class="dl">
+      <a class="btn win" id="dl-win" href="https://github.com/yhq927/aidms/releases/latest/download/AIDMS_0.1.0_x64-setup.exe">
+        <span class="ico">▦</span>
+        <span><span class="t">下载 Windows 版</span><br><span class="s">.exe 安装包 · v0.1.0</span></span>
+      </a>
+      <a class="btn mac" id="dl-mac" href="https://github.com/yhq927/aidms/releases/latest/download/AIDMS_0.1.0_x64.dmg">
+        <span class="ico">◉</span>
+        <span><span class="t">下载 macOS 版</span><br><span class="s">.dmg 安装包 · v0.1.0</span></span>
+      </a>
+    </div>
+    <p class="note">若直链未生效，请前往 <a href="https://github.com/yhq927/aidms/releases/latest" style="color:var(--brand)">GitHub Releases</a> 选择对应版本。首次发版后请核对 release 资产实际文件名。</p>
+  </section>
+
+  <section class="cards">
+    <div class="card"><h3>多主体归集</h3><p>支持最多 5 个公司主体，统一归档合同、资质、票据等资料。</p></div>
+    <div class="card"><h3>扫描件 OCR</h3><p>图片 / 扫描 PDF 自动识别文字（中文 + 英文），转成可检索文本。</p></div>
+    <div class="card"><h3>融合检索</h3><p>FTS5 全文 + 向量语义双路召回，RRF 融合排序并高亮命中。</p></div>
+    <div class="card"><h3>RAG 问答</h3><p>基于本地资料的问答，带提示注入隔离，答案可溯源。</p></div>
+    <div class="card"><h3>密钥走钥匙串</h3><p>云端 API Key 仅存系统钥匙串（keyring），绝不落库明文。</p></div>
+    <div class="card"><h3>离线可用</h3><p>核心检索与资料管理完全本地，无网络也能工作。</p></div>
+  </section>
+
+  <section class="privacy">
+    <h2>为什么是本地优先</h2>
+    <p>企业资料往往含敏感信息。AIDMS 把索引、向量与原文都留在你的机器上，仅在你主动配置 LLM 时才与外部模型通信，且所有出网请求经过 SSRF 防护。你拥有数据的完全控制权。</p>
+  </section>
+
+  <footer>
+    © 2026 AIDMS · <a href="https://github.com/yhq927/aidms" target="_blank" rel="noopener">GitHub</a> · 当前版本 v0.1.0
+  </footer>
+</div>
+<script>
+  // 根据访客系统高亮推荐按钮
+  (function(){
+    var ua = navigator.userAgent;
+    var win = document.getElementById('dl-win');
+    var mac = document.getElementById('dl-mac');
+    if (/Mac/i.test(ua)) { mac.classList.add('recommend'); }
+    else if (/Win/i.test(ua)) { win.classList.add('recommend'); }
+  })();
+</script>
+</body>
+</html>

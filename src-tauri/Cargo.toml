@@ -1,0 +1,39 @@
+[package]
+name = "aidms"
+version = "0.1.0"
+description = "AIDMS 企业资料管理系统（Tauri 2 桌面端）"
+edition = "2021"
+rust-version = "1.77"
+
+[lib]
+name = "aidms_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+aidms-core = { path = "../crates/aidms-core" }
+# 唯一出网 HTTP 客户端（安全基线：SSRF 防护 + 禁用自动重定向），见 src/net.rs
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls", "stream"] }
+keyring = "3"
+notify = "6"
+tokio = { version = "1", features = ["sync", "rt", "macros", "time"] }
+futures = "0.3"
+thiserror = "1"
+url = "2"
+chrono = "0.4"
+rusqlite = "0.40.2"
+# OCR 默认关闭（依赖系统 libtesseract）；开启 ocr feature 才拉取并编译
+tesseract = { version = "0.14", optional = true }
+
+[features]
+# 默认不开启任何预览特性；自定义协议等按 Tauri 2 默认
+default = []
+# OCR：Rust 侧 tesseract（系统库 + chi_sim.traineddata）；链接失败可降级 RapidOCR
+ocr = ["dep:tesseract"]
