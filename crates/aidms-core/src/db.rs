@@ -12,9 +12,10 @@ use rusqlite::ffi::sqlite3_auto_extension;
 /// 重复调用安全（SQLite 内部对相同扩展去重）。
 fn register_vec0() {
     unsafe {
-        sqlite3_auto_extension(Some(std::mem::transmute(
-            sqlite_vec::sqlite3_vec_init as *const (),
-        )));
+        let rc = sqlite3_auto_extension(Some(sqlite_vec::sqlite3_vec_init));
+        if rc != 0 {
+            eprintln!("[aidms] 警告: sqlite3_auto_extension 注册 vec0 返回非零码 {rc}");
+        }
     }
 }
 

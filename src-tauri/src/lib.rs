@@ -69,6 +69,16 @@ fn spawn_index_compensation(app: tauri::AppHandle) {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    // 全局 panic 钩子：任何崩溃都写入临时目录日志，便于用户反馈真因
+    std::panic::set_hook(Box::new(|info| {
+        let ts = std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .map(|d| d.as_secs())
+            .unwrap_or(0);
+        let msg = format!("[AIDMS PANIC] epoch={} | {:#?}\n", ts, info);
+        let _ = std::fs::write(std::env::temp_dir().join("aidms_panic.log"), &msg);
+        eprintln!("{msg}");
+    }));
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_opener::init())
@@ -79,8 +89,22 @@ pub fn run() {
                 .expect("无法获取应用数据目录");
             std::fs::create_dir_all(&dir).ok();
             let db_path = dir.join("aidms.db");
-            let conn = db::open(&db_path.to_string_lossy())
-                .map_err(|e| format!("数据库初始化失败: {e}"))?;
+            let conn = match db::open(&db_path.to_string_lossy()) {
+                Ok(c) => c,
+                Err(e) => {
+                    let msg = format!("数据库初始化失败: {e}");
+                    let now = std::time::SystemTime::now()
+                        .duration_since(std::time::UNIX_EPOCH)
+                        .map(|d| d.as_secs().to_string())
+                        .unwrap_or_else(|_| "unknown".into());
+                    let _ = std::fs::write(
+                        dir.join("crash.log"),
+                        format!("{msg}\nepoch: {now}\n"),
+                    );
+                    eprintln!("{msg}");
+                    return Err(msg);
+                }
+            };
             app.manage(DbState(
                 Arc::new(Mutex::new(conn)),
                 Mutex::new(HashSet::new()),
