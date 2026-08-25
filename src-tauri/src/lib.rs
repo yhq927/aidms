@@ -113,7 +113,7 @@ pub fn run() {
                     );
                     step(&format!("db::open FAIL: {e}"));
                     eprintln!("{msg}");
-                    return Err(msg);
+                    return Err(msg.into());
                 }
             };
             app.manage(DbState(
