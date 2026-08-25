@@ -6,17 +6,16 @@ on:
       - 'v*'
   workflow_dispatch:
 
+# 当前阶段（2026-08-25）：只构建 Windows，集中验证 Windows 真安装包形态。
+# macOS 暂不在矩阵内——原因：需要苹果开发者证书做签名/公证，当前仓库 Secrets
+# 里的 APPLE_* 为无效值会导致 codesign 失败。等 Windows 真安装包验证 OK、且
+# 拿到有效 APPLE_CERTIFICATE/APPLE_ID/APPLE_PASSWORD/APPLE_TEAM_ID 后，再恢复：
+#   matrix.include 加回 "- os: macos-latest / platform: macos"，
+#   Tauri build 的 env 加回 APPLE_* 与 TAURI_SIGNING_*（Windows 侧）。
+
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - os: windows-latest
-            platform: windows
-          - os: macos-latest
-            platform: macos
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -28,18 +27,17 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
-      # ---- 系统级依赖（仅编译期需要，OCR feature 链接 libtesseract）----
-      - name: System deps (macOS)
-        if: matrix.platform == 'macos'
-        run: brew install tesseract
-
-      - name: vcpkg tesseract (Windows, 编译期链接)
+      # ---- 编译期系统依赖：OCR feature 链接 libtesseract + leptonica ----
+      # 必须同时装 leptonica（tesseract 的底层依赖，leptonica-sys 会单独找它）；
+      # triplet 必须用 x64-windows-static-md：Rust 在 MSVC 下默认静态链接，
+      # leptonica-sys / tesseract-sys 的 vcpkg 查找用的就是这个 triplet，
+      # 用默认 x64-windows 会报 LibNotFound。
+      - name: vcpkg tesseract + leptonica (Windows)
         id: vcpkg
-        if: matrix.platform == 'windows'
         uses: johnwason/vcpkg-action@v6
         with:
-          pkgs: tesseract
-          triplet: x64-windows
+          pkgs: tesseract leptonica
+          triplet: x64-windows-static-md
           token: ${{ github.token }}
 
       # ---- 下载 OCR 中英文词库到随包 resources（chi_sim+eng，~30MB）----
@@ -51,26 +49,15 @@ jobs:
       - name: Install frontend deps
         run: npm --prefix frontend ci
 
-      # ---- Tauri 双平台构建（Windows + macOS，启用 ocr feature）----
+      # ---- Tauri Windows 构建（启用 ocr feature，输出 NSIS 安装向导）----
       - name: Tauri build
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Windows 编译期链接 vcpkg 的 tesseract
           # vcpkg-action 只把 VCPKG_ROOT 设进自己那一步的 env，不会透传给后续步骤；
-          # 而它的 outputs.vcpkg-root 在本 action 版本下取不到值，会导致 leptonica-sys 报
+          # 其 outputs.vcpkg-root 在本 action 版本下取不到值，会导致 leptonica-sys 报
           # VcpkgNotFound。这里直接写死 vcpkg 安装根目录（action 固定装到 <workspace>/vcpkg）。
           VCPKG_ROOT: ${{ github.workspace }}/vcpkg
-          # macOS 代码签名 + 公证（仓库 Secrets 配置）
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
-          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-          APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
-          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
-          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
-          # Windows 代码签名（TAURI_SIGNING_PRIVATE_KEY 为 PKCS#8 私钥）
-          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
-          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
           projectPath: src-tauri
           args: --features ocr
@@ -78,7 +65,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: aidms-${{ matrix.platform }}
+          name: aidms-windows
           path: |
             src-tauri/target/release/bundle/**/*
           if-no-files-found: ignore
