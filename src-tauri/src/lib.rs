@@ -89,8 +89,18 @@ pub fn run() {
                 .expect("无法获取应用数据目录");
             std::fs::create_dir_all(&dir).ok();
             let db_path = dir.join("aidms.db");
+            let step = |s: &str| {
+                let _ = std::fs::write(
+                    dir.join("startup.log"),
+                    format!("{} [step] {}\n", chrono::Local::now().format("%H:%M:%S%.3f"), s),
+                );
+            };
+            step("setup begin");
             let conn = match db::open(&db_path.to_string_lossy()) {
-                Ok(c) => c,
+                Ok(c) => {
+                    step("db::open ok");
+                    c
+                }
                 Err(e) => {
                     let msg = format!("数据库初始化失败: {e}");
                     let now = std::time::SystemTime::now()
@@ -101,6 +111,7 @@ pub fn run() {
                         dir.join("crash.log"),
                         format!("{msg}\nepoch: {now}\n"),
                     );
+                    step(&format!("db::open FAIL: {e}"));
                     eprintln!("{msg}");
                     return Err(msg);
                 }
@@ -110,8 +121,10 @@ pub fn run() {
                 Mutex::new(HashSet::new()),
                 Arc::new(AtomicBool::new(false)),
             ));
+            step("state managed");
             // P1-B：启动索引缺口补偿后台任务（延迟一次 + 每 10 分钟循环）
             spawn_index_compensation(app.handle().clone());
+            step("spawn_index_compensation done; setup ok");
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
