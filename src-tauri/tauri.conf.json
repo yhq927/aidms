@@ -32,7 +32,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "icon": ["icons/icon.png", "icons/icon.ico"],
+      "icon": ["icons/icon.png", "icons/icon.ico", "icons/icon.icns"],
       "category": "Productivity",
       "shortDescription": "本地企业资料管理与智能检索",
       "longDescription": "AIDMS：本地桌面企业资料管理系统，支持多主体资料归集、OCR、融合检索与 RAG 问答。",

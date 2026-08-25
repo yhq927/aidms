@@ -57,7 +57,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Windows 编译期链接 vcpkg 的 tesseract
-          VCPKG_ROOT: ${{ steps.vcpkg.outputs.vcpkg-root }}
+          # vcpkg-action 只把 VCPKG_ROOT 设进自己那一步的 env，不会透传给后续步骤；
+          # 而它的 outputs.vcpkg-root 在本 action 版本下取不到值，会导致 leptonica-sys 报
+          # VcpkgNotFound。这里直接写死 vcpkg 安装根目录（action 固定装到 <workspace>/vcpkg）。
+          VCPKG_ROOT: ${{ github.workspace }}/vcpkg
           # macOS 代码签名 + 公证（仓库 Secrets 配置）
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
