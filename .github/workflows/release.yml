@@ -69,3 +69,16 @@ jobs:
           path: |
             src-tauri/target/release/bundle/**/*
           if-no-files-found: ignore
+
+      # ---- 构建成功后直接发布到 GitHub Release（让落地页 latest/download 直链可用）----
+      # 当前固定发到 v0.1.0（仓库唯一 Release）。后续发新版时把 tag_name 改成对应版本。
+      - name: Publish to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v0.1.0
+          name: AIDMS v0.1.0
+          fail_on_unmatched_files: false
+          files: |
+            src-tauri/target/release/bundle/**/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
