@@ -1,1 +1,58 @@
-Ly8hIOaVsOaNruW6k+i/nuaOpSArIHZlYzAg6Ieq5Yqo5rOo5YaMICsg6L+B56e7Ci8vIQovLyEgc3FsaXRlLXZlYyAwLjEuOSDkuLrpnZnmgIHpk77mjqXvvIzpgJrov4cgYHNxbGl0ZTNfYXV0b19leHRlbnNpb25gIOWcqOi/m+eoi+WGheiHquWKqOazqOWGjCBgdmVjMGAKLy8hIOiZmuaLn+ihqO+8jOaXoOmcgCBgbG9hZF9leHRlbnNpb25g44CB5peg6ZyA6ZqP5YyF5YiG5Y+R5omp5bGV5LqM6L+b5Yi244CCCi8vIQovLyEg6L+B56e777yIUDItMTLvvInvvJpgbWlncmF0aW9ucy8qLnNxbGAg5oyJ5paH5Lu25ZCN5Y2H5bqP5YWo6YeP5omn6KGM77yI5q+P5qyh5ZCv5Yqo6YeN6LeR77yM6ISa5pys6aG75bmC562J77yMCi8vISDlj4LogIMgYDAwMDJfdXBncmFkZV90ZW1wbGF0ZS5zcWxgIOeahOivtOaYjuS4juWGmeazle+8ieOAggp1c2UgcnVzcWxpdGU6OmZmaTo6c3FsaXRlM19hdXRvX2V4dGVuc2lvbjsKCi8vLyDov5vnqIvnuqfvvJrms6jlhowgc3FsaXRlLXZlYyB2ZWMwIOiZmuaLn+ihqOOAguW/hemhu+WcqOmmluS4qiBydXNxbGl0ZSDov57mjqXmiZPlvIDliY3osIPnlKjkuIDmrKHjgIIKLy8vCi8vLyDph43lpI3osIPnlKjlronlhajvvIhTUUxpdGUg5YaF6YOo5a+555u45ZCM5omp5bGV5Y676YeN77yJ44CCCmZuIHJlZ2lzdGVyX3ZlYzAoKSB7CiAgICB1bnNhZmUgewogICAgICAgIC8vIHNxbGl0ZS12ZWMg5a6Y5pa555So5rOV77yac3FsaXRlM192ZWNfaW5pdCDnrb7lkI3kuLogYGZuKClg77yM6ICMIHNxbGl0ZTNfYXV0b19leHRlbnNpb24KICAgICAgICAvLyDmnJ/mnJvkuInlj4LlhaXlj6PvvJvnlKggdHJhbnNtdXRlIOahpeaOpSBBQknvvIhzcWxpdGUtdmVjIOiHquW4pua1i+ivleWQjOasvuWGmeazle+8ieOAggogICAgICAgIGxldCByYyA9IHNxbGl0ZTNfYXV0b19leHRlbnNpb24oU29tZShzdGQ6Om1lbTo6dHJhbnNtdXRlKAogICAgICAgICAgICBzcWxpdGVfdmVjOjpzcWxpdGUzX3ZlY19pbml0IGFzICpjb25zdCAoKSwKICAgICAgICApKSk7CiAgICAgICAgaWYgcmMgIT0gMCB7CiAgICAgICAgICAgIGVwcmludGxuISgiW2FpZG1zXSDorablkYo6IHNxbGl0ZTNfYXV0b19leHRlbnNpb24g5rOo5YaMIHZlYzAg6L+U5Zue6Z2e6Zu256CBIHtyY30iKTsKICAgICAgICB9CiAgICB9Cn0KCi8vLyDmiZPlvIDmlbDmja7lupPlubbot5Hln7rnur/ov4Hnp7vjgIIKLy8vCi8vLyAtIGBwYXRoYO+8mmAiOm1lbW9yeToiYCDnlKjkuo7mtYvor5XvvJvmraPlvI/ot6/lvoTkuLrlupTnlKjmlbDmja7nm67lvZXkuIvnmoQgYGFpZG1zLmRiYOOAggovLy8gLSDlkJHph4/ntKLlvJXpobvotbDoh6rlu7ogcnVzcWxpdGUg6L+e5o6l77yIVGF1cmkg5YaF572uIHNxbGl0ZSDmj5Lku7bmmK/lj6bkuIDlpZfov57mjqXvvIzkuI3kvJrms6jlhowgdmVjMO+8ieOAggpwdWIgZm4gb3BlbihwYXRoOiAmc3RyKSAtPiBydXNxbGl0ZTo6UmVzdWx0PHJ1c3FsaXRlOjpDb25uZWN0aW9uPiB7CiAgICByZWdpc3Rlcl92ZWMwKCk7CiAgICBsZXQgY29ubiA9IHJ1c3FsaXRlOjpDb25uZWN0aW9uOjpvcGVuKHBhdGgpPzsKICAgIHJ1bl9taWdyYXRpb25zKCZjb25uKT87CiAgICBPayhjb25uKQp9CgovLy8g57yW6K+R5pyf5bWM5YWl6L+B56e76ISa5pys77yI5oyJ5paH5Lu25ZCN5Y2H5bqP77yJ44CC6YG/5YWN5L2/55SoIGBDQVJHT19NQU5JRkVTVF9ESVJgIOWcqOi/kOihjOaXtuWumuS9jQovLy8gYG1pZ3JhdGlvbnMvYOKAlOKAlOivpeWuj+WcqOaJk+WMheWQjuaMh+WQkSBDSSDnvJbor5HmnLrot6/lvoTvvIzlnKjnlKjmiLfmnLrlmajkuIrkuI3lrZjlnKjkvJrlr7zoh7QgYGRiOjpvcGVuYAovLy8g5aSx6LSl5bm26Kem5Y+R5ZCv5YqoIHBhbmlj77yI5q2j5piv5q2k5YmN44CM5a6J6KOF5ZCOIDwxIOenkumXqumAgOOAjeeahOagueWboO+8ieOAguW1jOWFpeWQjui3qOW5s+WPsOmbtui/kOihjOaXtui3r+W+hOS+nei1luOAggpjb25zdCBNSUdSQVRJT05TOiAmWyZzdHJdID0gJlsKICAgIGluY2x1ZGVfc3RyISgiLi4vbWlncmF0aW9ucy8wMDAxX2luaXQuc3FsIiksCiAgICBpbmNsdWRlX3N0ciEoIi4uL21pZ3JhdGlvbnMvMDAwMl91cGdyYWRlX3RlbXBsYXRlLnNxbCIpLApdOwoKLy8vIOaJp+ihjOi/geenu++8muS+neasoSBgZXhlY3V0ZV9iYXRjaGAg5bWM5YWl55qEIFNRTO+8iOmhu+W5guetie+8jOingSAwMDAyIOaooeadv+azqOmHiu+8ieOAggpwdWIgZm4gcnVuX21pZ3JhdGlvbnMoY29ubjogJnJ1c3FsaXRlOjpDb25uZWN0aW9uKSAtPiBydXNxbGl0ZTo6UmVzdWx0PCgpPiB7CiAgICBmb3Igc3FsIGluIE1JR1JBVElPTlMgewogICAgICAgIGNvbm4uZXhlY3V0ZV9iYXRjaChzcWwpPzsKICAgIH0KICAgIC8vIOS4muWKoemihOe9ruWtl+aute+8iFIy77yJ77ya6aaW5qyh5bu65bqT5YaZ5YWl5LyB5Lia6YCa55So5a2X5q615a6a5LmJ77yM5bmC562JCiAgICBjcmF0ZTo6ZmllbGRzOjpzZWVkX3ByZXNldF9maWVsZF9kZWZzKGNvbm4pLm1hcF9lcnIofGV8IHsKICAgICAgICBydXNxbGl0ZTo6RXJyb3I6OlNxbGl0ZUZhaWx1cmUoCiAgICAgICAgICAgIHJ1c3FsaXRlOjpmZmk6OkVycm9yOjpuZXcocnVzcWxpdGU6OmZmaTo6U1FMSVRFX0VSUk9SKSwKICAgICAgICAgICAgU29tZShmb3JtYXQhKCLpooTnva7lrZfmrrXlhpnlhaXlpLHotKU6IHtlfSIpKSwKICAgICAgICApCiAgICB9KT87CiAgICBPaygoKSkKfQo=
+//! 数据库连接 + vec0 自动注册 + 迁移
+//!
+//! sqlite-vec 0.1.9 为静态链接，通过 `sqlite3_auto_extension` 在进程内自动注册 `vec0`
+//! 虚拟表，无需 `load_extension`、无需随包分发扩展二进制。
+//!
+//! 迁移（P2-12）：`migrations/*.sql` 按文件名升序全量执行（每次启动重跑，脚本须幂等，
+//! 参考 `0002_upgrade_template.sql` 的说明与写法）。
+use rusqlite::ffi::sqlite3_auto_extension;
+
+/// 进程级：注册 sqlite-vec vec0 虚拟表。必须在首个 rusqlite 连接打开前调用一次。
+///
+/// 重复调用安全（SQLite 内部对相同扩展去重）。
+fn register_vec0() {
+    unsafe {
+        // sqlite-vec 官方用法：sqlite3_vec_init 签名为 `fn()`，而 sqlite3_auto_extension
+        // 期望三参入口；用 transmute 桥接 ABI（sqlite-vec 自带测试同款写法）。
+        let rc = sqlite3_auto_extension(Some(std::mem::transmute(
+            sqlite_vec::sqlite3_vec_init as *const (),
+        )));
+        if rc != 0 {
+            eprintln!("[aidms] 警告: sqlite3_auto_extension 注册 vec0 返回非零码 {rc}");
+        }
+    }
+}
+
+/// 打开数据库并跑基线迁移。
+///
+/// - `path`：`":memory:"` 用于测试；正式路径为应用数据目录下的 `aidms.db`。
+/// - 向量索引须走自建 rusqlite 连接（Tauri 内置 sqlite 插件是另一套连接，不会注册 vec0）。
+pub fn open(path: &str) -> rusqlite::Result<rusqlite::Connection> {
+    register_vec0();
+    let conn = rusqlite::Connection::open(path)?;
+    run_migrations(&conn)?;
+    Ok(conn)
+}
+
+/// 编译期嵌入迁移脚本（按文件名升序）。避免使用 `CARGO_MANIFEST_DIR` 在运行时定位
+/// `migrations/`——该宏在打包后指向 CI 编译机路径，在用户机器上不存在会导致 `db::open`
+/// 失败并触发启动 panic（正是此前「安装后 <1 秒闪退」的根因）。嵌入后跨平台零运行时路径依赖。
+const MIGRATIONS: &[&str] = &[
+    include_str!("../migrations/0001_init.sql"),
+    include_str!("../migrations/0002_upgrade_template.sql"),
+];
+
+/// 执行迁移：依次 `execute_batch` 嵌入的 SQL（须幂等，见 0002 模板注释）。
+pub fn run_migrations(conn: &rusqlite::Connection) -> rusqlite::Result<()> {
+    for sql in MIGRATIONS {
+        conn.execute_batch(sql)?;
+    }
+    // 业务预置字段（R2）：首次建库写入企业通用字段定义，幂等
+    crate::fields::seed_preset_field_defs(conn).map_err(|e| {
+        rusqlite::Error::SqliteFailure(
+            rusqlite::ffi::Error::new(rusqlite::ffi::SQLITE_ERROR),
+            Some(format!("预置字段写入失败: {e}")),
+        )
+    })?;
+    Ok(())
+}

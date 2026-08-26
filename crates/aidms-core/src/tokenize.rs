@@ -1,1 +1,58 @@
-Ly8hIGppZWJhIFNlYXJjaCDmqKHlvI/pooTliIfor40KLy8hCi8vISDlhaXlupPnq6/kuI7mn6Xor6Lnq68qKuW/hemhu+WQjOazleiwg+eUqCoqIFtgY3V0X3NlYXJjaGBd77yM5L+d6K+BIEZUUzUodW5pY29kZTYxKSDlhpnlhaXkuI7mn6Xor6LnmoTnqbrmoLzliIfliIbkuIDoh7TvvIwKLy8hIOWQpuWImeS8mua8j+WPrOWbnu+8iOW8gOWPkeiuoeWIkumYtuautSAyIC8g5oqA5pyv6K6+6K6hIMKnNO+8ieOAggovLyEKLy8hIOWtl+WFuOaWh+S7tumajyBjcmF0ZSDnvJbor5HmnJ/ltYzlhaXkuozov5vliLbvvIhgaW5jbHVkZV9ieXRlcyFg77yJ77yM6L+Q6KGM5pyf5YaZ5Ye65YiwIGAlVEVNUCUvYWlkbXNfamllYmFfZGljdGAKLy8hIOWGjeWKoOi9veKAlOKAlCoq5LiN5YaN5L2/55SoIGBDQVJHT19NQU5JRkVTVF9ESVJgIOWumuS9jSBgZGljdC9gKirvvJror6Xlro/lnKjmiZPljIXlkI7mjIflkJEgQ0kg57yW6K+R5py66Lev5b6E77yMCi8vISDlnKjnlKjmiLfmnLrlmajkuIrkuI3lrZjlnKjvvIzkvJrlr7zoh7QgYEppZWJhRGljdDo6bmV3YCDmiZPlvIDlpLHotKXlubbop6blj5EgQysrIEZBVEFMIOW0qea6g++8iOaQnOe0oi9PQ1Ig5pe277yJ44CCCi8vISDlhpnlh7rnm67moIfkuLogYCVURU1QJWAg5LiL55qEIEFTQ0lJIOWtkOebruW9leWQje+8jOinhOmBvyBXaW5kb3dzIOS4reaWh+i3r+W+hOeqhOWtl+espue8lueggemXrumimO+8iGNwcGppZWJhIOWGhemDqAovLyEg55SoIEMrKyBgc3RkOjppZnN0cmVhbWAg5oyJ57O757ufIEFOU0kg5Luj56CB6aG16Kej6YeK56qE5a2X56ym6Lev5b6E77yM5ZCr5Lit5paH5pe25b+F54S25aSx6LSl77yJ44CCCnVzZSBzdGQ6OnBhdGg6OlBhdGhCdWY7CnVzZSBzdGQ6OnRocmVhZF9sb2NhbDsKCnVzZSBqaWViYTo6e0ppZWJhLCBKaWViYURpY3R9OwoKLy8vIOe8luivkeacn+W1jOWFpeivjeWFuOWtl+iKgu+8iOaWh+S7tuWQjeS4jumhuuW6j+mhu+S4juS4i+aWuSBgZGljdF9kaXJgIOino+WMheS4gOiHtO+8ieOAggpjb25zdCBESUNUX0JZVEVTOiBbKCZzdHIsICZbdThdKTsgNV0gPSBbCiAgICAoImppZWJhLmRpY3QudXRmOCIsIGluY2x1ZGVfYnl0ZXMhKCIuLi9kaWN0L2ppZWJhLmRpY3QudXRmOCIpKSwKICAgICgiaG1tX21vZGVsLnV0ZjgiLCBpbmNsdWRlX2J5dGVzISgiLi4vZGljdC9obW1fbW9kZWwudXRmOCIpKSwKICAgICgidXNlci5kaWN0LnV0ZjgiLCBpbmNsdWRlX2J5dGVzISgiLi4vZGljdC91c2VyLmRpY3QudXRmOCIpKSwKICAgICgiaWRmLnV0ZjgiLCBpbmNsdWRlX2J5dGVzISgiLi4vZGljdC9pZGYudXRmOCIpKSwKICAgICgic3RvcF93b3Jkcy51dGY4IiwgaW5jbHVkZV9ieXRlcyEoIi4uL2RpY3Qvc3RvcF93b3Jkcy51dGY4IikpLApdOwoKdGhyZWFkX2xvY2FsISB7CiAgICBzdGF0aWMgSklFQkE6IEppZWJhID0gYnVpbGRfamllYmEoKTsKfQoKLy8vIOWtl+WFuOino+WMheebruW9le+8muS7juW1jOWFpeWtl+iKguWGmeWHuuWIsOS4tOaXtuebruW9leWQjuWKoOi9ve+8jOinhOmBv+aJk+WMheWQjiBgQ0FSR09fTUFOSUZFU1RfRElSYCDlpLHmlYjvvIwKLy8vIOWQjOaXtuWIqeeUqCBgJVRFTVAlYCDkuIvnmoQgQVNDSUkg5a2Q55uu5b2V5ZCN6KeE6YG/IFdpbmRvd3Mg5Lit5paH6Lev5b6E56qE5a2X56ym57yW56CB6Zeu6aKY44CCCmZuIGRpY3RfZGlyKCkgLT4gUGF0aEJ1ZiB7CiAgICBsZXQgY2FjaGUgPSBzdGQ6OmVudjo6dGVtcF9kaXIoKS5qb2luKCJhaWRtc19qaWViYV9kaWN0Iik7CiAgICBsZXQgXyA9IHN0ZDo6ZnM6OmNyZWF0ZV9kaXJfYWxsKCZjYWNoZSk7CiAgICBmb3IgKG5hbWUsIGJ5dGVzKSBpbiBESUNUX0JZVEVTIHsKICAgICAgICBsZXQgZHN0ID0gY2FjaGUuam9pbihuYW1lKTsKICAgICAgICBpZiAhZHN0LmV4aXN0cygpIHsKICAgICAgICAgICAgbGV0IF8gPSBzdGQ6OmZzOjp3cml0ZSgmZHN0LCBieXRlcyk7CiAgICAgICAgfQogICAgfQogICAgY2FjaGUKfQoKZm4gYnVpbGRfamllYmEoKSAtPiBKaWViYSB7CiAgICBsZXQgYmFzZSA9IGRpY3RfZGlyKCk7CiAgICBsZXQgZGljdCA9IEppZWJhRGljdDo6bmV3KAogICAgICAgICZiYXNlLmpvaW4oImppZWJhLmRpY3QudXRmOCIpLnRvX3N0cmluZ19sb3NzeSgpLAogICAgICAgICZiYXNlLmpvaW4oImhtbV9tb2RlbC51dGY4IikudG9fc3RyaW5nX2xvc3N5KCksCiAgICAgICAgJmJhc2Uuam9pbigidXNlci5kaWN0LnV0ZjgiKS50b19zdHJpbmdfbG9zc3koKSwKICAgICAgICAmYmFzZS5qb2luKCJpZGYudXRmOCIpLnRvX3N0cmluZ19sb3NzeSgpLAogICAgICAgICZiYXNlLmpvaW4oInN0b3Bfd29yZHMudXRmOCIpLnRvX3N0cmluZ19sb3NzeSgpLAogICAgKTsKICAgIEppZWJhOjp3aXRoX2RpY3QoZGljdCkKfQoKLy8vIFNlYXJjaCDmqKHlvI/liIfor43lubbku6XnqbrmoLzmi7zmjqXvvIjlhpkgRlRTNSB1bmljb2RlNjEg6KGoIC8g5p+l6K+i56uv5aSN55So5ZCM5LiA5Ye95pWw77yJCnB1YiBmbiBjdXRfc2VhcmNoKHRleHQ6ICZzdHIpIC0+IFN0cmluZyB7CiAgICBKSUVCQS53aXRoKHxqfCBqLmN1dF9mb3Jfc2VhcmNoKHRleHQsIGZhbHNlKS5qb2luKCIgIikpCn0K
+//! jieba Search 模式预切词
+//!
+//! 入库端与查询端**必须同法调用** [`cut_search`]，保证 FTS5(unicode61) 写入与查询的空格切分一致，
+//! 否则会漏召回（开发计划阶段 2 / 技术设计 §4）。
+//!
+//! 字典文件随 crate 编译期嵌入二进制（`include_bytes!`），运行期写出到 `%TEMP%/aidms_jieba_dict`
+//! 再加载——**不再使用 `CARGO_MANIFEST_DIR` 定位 `dict/`**：该宏在打包后指向 CI 编译机路径，
+//! 在用户机器上不存在，会导致 `JiebaDict::new` 打开失败并触发 C++ FATAL 崩溃（搜索/OCR 时）。
+//! 写出目标为 `%TEMP%` 下的 ASCII 子目录名，规避 Windows 中文路径窄字符编码问题（cppjieba 内部
+//! 用 C++ `std::ifstream` 按系统 ANSI 代码页解释窄字符路径，含中文时必然失败）。
+use std::path::PathBuf;
+use std::thread_local;
+
+use jieba::{Jieba, JiebaDict};
+
+/// 编译期嵌入词典字节（文件名与顺序须与下方 `dict_dir` 解包一致）。
+const DICT_BYTES: [(&str, &[u8]); 5] = [
+    ("jieba.dict.utf8", include_bytes!("../dict/jieba.dict.utf8")),
+    ("hmm_model.utf8", include_bytes!("../dict/hmm_model.utf8")),
+    ("user.dict.utf8", include_bytes!("../dict/user.dict.utf8")),
+    ("idf.utf8", include_bytes!("../dict/idf.utf8")),
+    ("stop_words.utf8", include_bytes!("../dict/stop_words.utf8")),
+];
+
+thread_local! {
+    static JIEBA: Jieba = build_jieba();
+}
+
+/// 字典解包目录：从嵌入字节写出到临时目录后加载，规避打包后 `CARGO_MANIFEST_DIR` 失效，
+/// 同时利用 `%TEMP%` 下的 ASCII 子目录名规避 Windows 中文路径窄字符编码问题。
+fn dict_dir() -> PathBuf {
+    let cache = std::env::temp_dir().join("aidms_jieba_dict");
+    let _ = std::fs::create_dir_all(&cache);
+    for (name, bytes) in DICT_BYTES {
+        let dst = cache.join(name);
+        if !dst.exists() {
+            let _ = std::fs::write(&dst, bytes);
+        }
+    }
+    cache
+}
+
+fn build_jieba() -> Jieba {
+    let base = dict_dir();
+    let dict = JiebaDict::new(
+        &base.join("jieba.dict.utf8").to_string_lossy(),
+        &base.join("hmm_model.utf8").to_string_lossy(),
+        &base.join("user.dict.utf8").to_string_lossy(),
+        &base.join("idf.utf8").to_string_lossy(),
+        &base.join("stop_words.utf8").to_string_lossy(),
+    );
+    Jieba::with_dict(dict)
+}
+
+/// Search 模式切词并以空格拼接（写 FTS5 unicode61 表 / 查询端复用同一函数）
+pub fn cut_search(text: &str) -> String {
+    JIEBA.with(|j| j.cut_for_search(text, false).join(" "))
+}
