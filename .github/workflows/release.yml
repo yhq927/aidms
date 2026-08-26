@@ -6,6 +6,12 @@ on:
       - 'v*'
   workflow_dispatch:
 
+# 发布步骤需要 contents: write 才能更新 GitHub Release；
+# 默认 GITHUB_TOKEN 在部分仓库配置下是只读，会导致
+# softprops/action-gh-release 报 "Resource not accessible by integration"。
+permissions:
+  contents: write
+
 # 当前阶段（2026-08-25）：只构建 Windows，集中验证 Windows 真安装包形态。
 # macOS 暂不在矩阵内——原因：需要苹果开发者证书做签名/公证，当前仓库 Secrets
 # 里的 APPLE_* 为无效值会导致 codesign 失败。等 Windows 真安装包验证 OK、且

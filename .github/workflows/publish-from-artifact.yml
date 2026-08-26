@@ -1,9 +1,9 @@
 name: Publish AIDMS v0.1.0 from verified artifact
 
-# 一次性发布流程：把已验证成功的 Windows 构建产物（run 32813518301 的
-# aidms-windows artifact）直接挂到 v0.1.0 Release，使落地页 latest/download
-# 直链可用。全部在 GitHub runner 侧完成，不经过本地 sandbox（避免 Azure
-# 下载被限速）。
+# 一次性发布流程：把已验证成功的 Windows 构建产物（run 32835091134 的
+# aidms-windows artifact —— 该 run 已含 lib.rs Err.into() 编译修复）直接挂到
+# v0.1.0 Release，使落地页 latest/download 直链可用。全部在 GitHub runner
+# 侧完成，不经过本地 sandbox（避免 Azure 下载被限速）。
 on:
   workflow_dispatch:
 
@@ -19,7 +19,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: aidms-windows
-          run-id: 32813518301
+          run-id: 32835091134
           path: dist
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
